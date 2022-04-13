@@ -1,0 +1,154 @@
+{
+  "tasks": [
+    {
+      "TaskId": "1",
+      "TaskName": "EvtxECmd",
+      "Directory" : "EventLogs",
+      "TaskDescription": "Runs Eric Zimmermans EvtxCmd",
+      "Tasking": "-d %sourceDirectory% --csv %destinationDirectory% --csvf fullevtx.csv",
+      "Executable": "EvtxECmd/EvtxECmd.dll",
+      "RequiredSource": "na",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "2",
+      "TaskName": "AmcacheZim",
+      "Directory" : "ProgramExecution",
+      "TaskDescription": "Runs Eric Zimmermans AmcacheParser",
+      "Tasking": "-f %requiredSource% --csv %destinationDirectory% --csvf amcache.csv -i",
+      "RequiredSource": "Amcache.hve",
+      "Executable": "AmcacheParser.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "3",
+      "TaskName": "AppCompatCacheParserZim",
+      "Directory" : "ProgramExecution",
+      "TaskDescription": "Runs Eric Zimmermans AppCompatCacheParser ",
+      "Tasking": "-f %requiredSource% --csv %destinationDirectory% --csvf appcompatcache.csv",
+      "RequiredSource": "SYSTEM",
+      "Executable": "AppCompatCacheParser.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "4",
+      "TaskName": "JLECmdZim",
+      "Directory" : "FileFolderAccess",
+      "TaskDescription": "Runs Eric Zimmermans JLECmd for processing JumpLists ",
+      "Tasking": "-d %sourceDirectory% --csv %destinationDirectory% -q --csvf jumplist.csv",
+      "RequiredSource": "na",
+      "Executable": "JLECmd.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "5",
+      "TaskName": "LeCmdZim",
+      "Directory" : "FileFolderAccess",
+      "TaskDescription": "Runs Eric Zimmermans LeCmd tool for Lnk file analysis ",
+      "Tasking": "-d %sourceDirectory% --csv %destinationDirectory% -q --csvf lnkfile.csv",
+      "RequiredSource": "na",
+      "Executable": "LECmd.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "6",
+      "TaskName": "PreDefech",
+      "Directory" : "ProgramExecution",
+      "TaskDescription": "Runs Python Prefetch Parser",
+      "RequiredSource": "na",
+      "Tasking": "-i %sourceDirectory% -c -o %destinationDirectory%/prefetcj.csv",
+      "Executable": "tbd",
+      "Caller": "Python3"
+    },
+    {
+      "TaskId": "7",
+      "TaskName": "RBCmdZim",
+      "Directory" : "FileDeletion",
+      "TaskDescription": "Runs Eric Zimmermans RBCmd tool for RecycleBin Artifacts ",
+      "Tasking": "-d %sourceDirectory% --csv %destinationDirectory% -q --csvf recyclebin.csv",
+      "RequiredSource": "na",
+      "Executable": "RBCmd.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "8",
+      "TaskName": "SBECmdZim",
+      "Directory" : "FileFolderAccess",
+      "TaskDescription": "Runs Eric Zimmermans SBECmd tool for shellbag parsing",
+      "Tasking": "-d %sourceDirectory% --csv %destinationDirectory% --csvf shellbags.csv",
+      "RequiredSource": "na",
+      "Executable": "SBECmd.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "9",
+      "TaskName": "RecentFileCacheParserZim",
+      "Directory" : "ProgramExecution",
+      "TaskDescription": "Runs Eric Zimmermans RecentFileCacheParser to extrace filenames from bcf",
+      "Tasking": "-f %requiredSource% --csv %destinationDirectory% --csfv recentfilecache.csv",
+      "requiredSource": "RecentFilecache.bcf",
+      "Executable": "RecentFileCacheParser.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "11",
+      "TaskName": "ActivitiesCacheParser",
+      "Directory" : "FileFolderAccess",
+      "TaskDescription": "Runs Custom SQLite query courtesy of kacos2000",
+      "Tasking": "-csv %requiredSource% < %sqlquery% > %destinationDirectory%/activitiescache.csv",
+      "RequiredSource": "ActivitiesCache.db",
+      "Executable": "",
+      "Caller": "sqlite3"
+    },
+    {
+      "TaskId": "12",
+      "TaskName": "DollarBootZim",
+      "Directory" : "FileSystem",
+      "TaskDescription": "Runs Eric Zimmermans MFTECmd on $Boot File",
+      "Tasking": "-f '%requiredSource%' --csv %destinationDirectory% --csvf dollarboot.csv",
+      "RequiredSource": "$Boot",
+      "Executable": "MFTECmd.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "13",
+      "TaskName": "DollarMFTZim",
+      "Directory" : "FileSystem",
+      "TaskDescription": "Runs Eric Zimmermans MFTCmd on $MFT",
+      "Tasking": "-f '%requiredSource%' --csv %destinationDirectory% --csvf dollarmft.csv",
+      "RequiredSource": "$MFT",
+      "Executable": "MFTECmd.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "14",
+      "TaskName": "DollarJZim",
+      "Directory" : "FileSystem",
+      "TaskDescription": "Runs Eric Zimmermans MFTCmd on $J",
+      "Tasking": "-f '%requiredSource%' --csv %destinationDirectory% --csvf dollarj.csv",
+      "RequiredSource": "$Boot",
+      "Executable": "MFTECmd.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "15",
+      "TaskName": "DollarSDSZim",
+      "Directory" : "FileSystem",
+      "TaskDescription": "Runs Eric Zimmermans MFTCmd on $SDS ",
+      "Tasking": "-f '%requiredSource%' --csv %destinationDirectory% --csvf dollarsds.csv",
+      "RequiredSource": "$Secure_$SDS",
+      "Executable": "MFTECmd.dll",
+      "Caller": "dotnet"
+    },
+    {
+      "TaskId": "10",
+      "TaskName": "ReCmdZim-kroll",
+      "Directory" : "Registry",
+      "TaskDescription": "Runs Eric Zimmermans RECmd tool for Registry Hives",
+      "Tasking": "--bn %rebpath%Kroll_Batch.reb -d %sourceDirectory% --nl --csv %destinationDirectory%",
+      "RequiredSource": "na",
+      "Executable": "RECmd/RECmd.dll",
+      "Caller": "dotnet"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "templates": [
+    {
+  "TemplateName": "default",
+  "ExecutedTasks": "EvtxECmd,AmcacheZim,AppCompatCacheParserZim,JLECmdZim,LeCmdZim,RBCmdZim,SBECmdZim,RecentFileCacheParserZim,ReCmdZim-kroll,ActivitiesCacheParser,DollarBootZim,DollarMFTZim,DollarJZim,DollarSDSZim,PreDefech",
+      "Description" : "Default template - runs most tools"
+
+    },
+{
+  "TemplateName": "FileSystem",
+  "ExecutedTasks": "DollarBootZim,DollarMFTZim,DollarJZim,DollarSDSZim",
+  "Description" : "Runs all Filesystem Parsers"
+},
+    {
+      "TemplateName": "AllIncPECmd",
+      "ExecutedTasks": "EvtxECmd,AmcacheZim,AppCompatCacheParserZim,JLECmdZim,LeCmdZim,PreDefech,RBCmdZim,SBECmdZim,RecentFileCacheParserZim,ReCmdZim-kroll,ActivitiesCacheParser,DollarBootZim,DollarMFTZim,DollarJZim,DollarSDSZim",
+      "Description" : "Runs all Filesystem Parsers"
+    },
+    {
+      "TemplateName": "DeletedFiles",
+      "ExecutedTasks": "RBCmdZim",
+      "Description" : "Runs any File Deletions Tasks"
+    },
+    {
+      "TemplateName": "FolderAccess",
+      "ExecutedTasks": "SBECmdZim,WxTCmdZim,LeCmdZim,JLECmdZim",
+      "Description" : "Runs all folder access tools"
+    }
+  ]
+}

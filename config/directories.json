@@ -1,0 +1,50 @@
+{
+  "dirs": [
+    {
+      "Directory": "Browser",
+      "Description": "Output of All Browser Activity"
+    },
+
+    {
+      "Directory": "EventLogs",
+      "Description": "Event Logs"
+
+    },
+    {
+      "Directory": "FileSystem",
+      "Description": "File System Output"
+
+    },
+    {
+      "Directory": "FileFolderAccess",
+      "Description": "File and Folder Access"
+
+    },
+    {
+      "Directory": "Misc",
+      "Description": "Placeholder for random files"
+
+    },
+    {
+      "Directory": "ProgramExecution",
+      "Description": "Evidence of Execution"
+
+    },
+
+    {
+      "Directory": "Registry",
+      "Description": "Registry Modules Output"
+
+    },
+    {
+      "Directory": "Timeline",
+      "Description": "Placeholder for timelining"
+
+    },
+    {
+      "Directory": "FileDeletion",
+      "Description": "Evidence of File Deletion"
+
+    }
+  ]
+}
